@@ -31,7 +31,7 @@
 	body {
 		font-family: 'Montserrat', sans-serif;
 	    background-color: #f8f7f4;
-	    margin-top: 6rem;
+	    margin-top: 8rem;
 	    font-size: 0.75em; /* That is your text's default font size. Here i chose 12px */
 	}
 	h1, h2, h3, h4, .cv-item__company {
@@ -99,8 +99,17 @@
 	}
 
 	.name__sub {
-		font-size: 1.4em;
+		font-size: 1.8em;
 		font-weight: 600;
+	}
+	.name__role,
+	.cv-item__date
+	{
+		text-transform: uppercase;
+    	letter-spacing: 6px;
+	}
+	.cv-item__date {
+		font-size: .6em;
 	}
 
 	.header-top {
@@ -226,7 +235,8 @@
 	}
 	/* CV items */
 	
-	@media only screen and (min-width: 601px){
+	@media only screen and (max-width: 601px){
+		.header-top__left {display: none}
 	}
 	@media only screen and (min-width: 768px){
 		.fluid-type {font-size: 3rem}
