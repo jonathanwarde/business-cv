@@ -9,8 +9,8 @@
   <!-- Mobile Meta -->
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>Business CV</title>
-  <meta name="description" content="James Macleod CV">
+  <title>James MacLeod | Account manager</title>
+  <meta name="description" content="James MacLeod CV">
   <meta name="author" content="Jon Warde">
   <link href="tingle.min.css" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css?family=Archivo+Black|Montserrat:300,400&display=swap" rel="stylesheet">
@@ -26,17 +26,19 @@
 		box-sizing: border-box;
 	}
 	html {
-		font-size: 90% /* or 62.5% or whatever you like, it doesn't matter, it's just a browser fix, however "rem" units will be based on that value, so make it confortable for calculations; */;
+		font-size: 100% /* or 62.5% or whatever you like, it doesn't matter, it's just a browser fix, however "rem" units will be based on that value, so make it confortable for calculations; */;
 	}
 	body {
 		font-family: 'Montserrat', sans-serif;
 	    background-color: #f8f7f4;
 	    margin-top: 8rem;
-	    font-size: 0.75em; /* That is your text's default font size. Here i chose 12px */
+	    font-size: 1.2em; /* That is your text's default font size. */
+	    line-height: 1.5;
 	}
 	h1, h2, h3, h4, .cv-item__company {
 		font-family: 'Archivo Black', sans-serif;
 		color: #39687f;
+		line-height: 1.2;
 	}
 	ol {list-style-type: none}
 	ul {    list-style-type: square;}
@@ -70,7 +72,8 @@
 	}
 	p {margin-bottom: 1rem;}
 	p, ul li, ol li {
-	    font-size: 1.4rem;
+	    /*font-size: 1.4em;*/
+	    margin-bottom: 1rem;
 	}
 
 	/* Flex the things */
@@ -89,6 +92,7 @@
 		align-self: center;
 		max-width: 19rem;
 		padding: 0 0 0 1rem;
+		min-width: 9rem;
 	}
 	.name-section .name {
 		margin-left: 2rem;
@@ -99,17 +103,20 @@
 	}
 
 	.name__sub {
-		font-size: 1.8em;
+		font-size: 1.6em;
 		font-weight: 600;
+		margin-top: .3rem;
 	}
 	.name__role,
 	.cv-item__date
 	{
 		text-transform: uppercase;
     	letter-spacing: 6px;
+    	line-height: 1.2;
 	}
 	.cv-item__date {
-		font-size: .6em;
+		    font-size: .9em;
+    margin-top: .6rem;
 	}
 
 	.header-top {
@@ -131,7 +138,7 @@
 
 	.header-top__left a,
 	.header-top__left span {
-		top: -5px;
+		top: -8px;
     	position: relative;
 	}
 
@@ -161,6 +168,10 @@
     	margin-right: 1rem;
 	}
 
+	.icon use {
+	    fill: #bc8545;
+	}
+
 	.header-top__right .last {
 		margin-right: 0;
 	}
@@ -186,6 +197,10 @@
 	    top: 50%;
 	    left: 50%;
 	    transform: translate(-50%, -50%);
+	    color: #bc8545;
+	}
+	.label__title {
+		margin-top: .4rem;
 	}
 
 	/* Section*/
@@ -210,7 +225,7 @@
 
 	footer {
 	    background-color: #fcab13;
-	    color: #333;
+	    color: #fff;
 	}
 	.footer__inner {
 	    display: flex;
@@ -226,23 +241,36 @@
 		padding: 1rem;
 	}
 	.footer__inner h5 {
-		font-size: 3em;
+		font-size: 2em;
 	}
 	footer a {
 	    color: #333;
 	    text-decoration: none;
-	    font-size: 1.4rem;
+	    font-size: 1em;
 	}
 	/* CV items */
 	
 	@media only screen and (max-width: 601px){
 		.header-top__left {display: none}
+		.footer__inner {
+		    flex-direction: column;
+		}
+		body {margin-top: 5rem;}
+		a.cv-item__logo {
+		    display: none;
+		}
+		.label__outer.label--body {
+		    border-top: 5px solid #fcab13;
+		}
+		.name__sub {font-size: 1em}
+		.label__outer.label--body {
+		    align-items: center;
+		}
 	}
 	@media only screen and (min-width: 768px){
 		.fluid-type {font-size: 3rem}
 		.fluid-type--small {font-size: 1.6rem}
 		p, ul li, ol li {
-		    font-size: 1.6rem;
 		    margin-bottom: 2rem;
 		}
 		.cv-item__top {
@@ -309,6 +337,7 @@
 		    width: 48%;
 		    vertical-align: top;
 		}
+		body {font-size: 0.85em}
 	}
 
   </style>
@@ -352,7 +381,7 @@
 	<div class="container name-section">
 		<img src="img/james-macleod.jpg" alt="" class="">
 		<div class="name">
-			<h1 class="fluid-type">James Macleod</h1>
+			<h1 class="fluid-type">James MacLeod</h1>
 			<p class="name__role">Account Manager</p>
 			<p class="name__sub desktop-only">Executes sales and marketing strategies, exceeds KPIs &amp; enhances client relations | Driven by results | Successfully negotiates with new and existing suppliers | Supports and trains colleagues on new processes</p>
 		</div>
@@ -368,14 +397,12 @@
 	</div>
 	<div class="main">
 		<p>Accomplished business development professional with a proven track record delivering rapid growth sales and
-		marketing strategies in-line with targets, KPIs and business needs. Identifies new sales opportunities and plays a
-		pivotal role in shaping the brand identity. Adopts a consultative, solution orientated and service focused approach to
-		engagement by always putting the client at the heart of the sales process.</p>
+		marketing strategies in-line with targets, KPIs and business needs.<p>
+		<p>Identifies new sales opportunities and plays a pivotal role in shaping the brand identity. Adopts a consultative, solution orientated and service focused approach to engagement by always putting the client at the heart of the sales process.</p>
 		<p>Forges strong relationships with key internal and external stakeholders; provides support and guidance to teams and
-		negotiates with new and existing clients to share best practice. Thrives in fast-paced environments to deliver
-		revenue increase and client retention, focused on the key principles of value for money, return on investment and
-		customer satisfaction. Takes ownership of full project lifecycles and retains a dedication to continued professional
-		development.</p>
+		negotiates with new and existing clients to share best practice. </p>
+		<p>Thrives in fast-paced environments to deliver revenue increase and client retention, focused on the key principles of value for money, return on investment and customer satisfaction.<p>
+		<p>Takes ownership of full project lifecycles and retains a dedication to continued professional development.</p>
 	</div>
 </section>
 
@@ -480,8 +507,10 @@
 		<h2 class="label__title fluid-type--small">Other info</h2>
 	</div>
 	<div class="main">
-		<p><strong>Marketing Consultant</strong>: Peninsula Business Services. (April 2006 – February 2007)
-		<strong>Project Manager / Sales Consultant</strong>: Vision Marketing. (November 2004 – April 2006)</p>
+		<h4>Marketing Consultant</h4>
+		<p>Peninsula Business Services. (April 2006 – February 2007)</p>
+		<h4>Project Manager / Sales Consultant</h4>
+	    <p>Vision Marketing. (November 2004 – April 2006)</p>
 		<h4>Education history</h4>
 		<p>BA (Hons) in English Literature – 2:1: University of Birmingham. (1999 – 2002)<p>
 		<p>3 x A Levels including Business Studies (A), Media Studies (A) and English (B): Palmers College. (1994 – 1997)
