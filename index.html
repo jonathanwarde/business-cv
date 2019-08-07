@@ -5,9 +5,197 @@
   <meta charset="utf-8">
 
   <title>Business CV</title>
-  <meta name="description" content="The HTML5 Herald">
-  <meta name="author" content="SitePoint">
+  <meta name="description" content="James Macleod CV">
+  <meta name="author" content="Jon Warde">
+  <link href="https://fonts.googleapis.com/css?family=Archivo+Black|Montserrat:300,400&display=swap" rel="stylesheet">
   <style>
+
+	* {
+	margin:0;
+	padding:0;
+	box-sizing: border-box;
+	}
+	:before,
+	:after {
+		box-sizing: border-box;
+	}
+	body {
+		font-family: 'Montserrat', sans-serif;
+		min-height: 100vh;
+	    background-color: #f8f7f4;
+	    margin-top: 6rem;
+	}
+	h1, h2, h3, h4, .cv-item__company {
+		font-family: 'Archivo Black', sans-serif;
+		color: #39687f;
+	}
+	ol {list-style-type: none}
+	ul {    list-style-type: square;}
+
+	img {
+		max-width: 100%;
+    	height: auto;
+	}
+
+	.container {
+		max-width: 1280px;
+    	margin: 0 auto;
+	}
+	/* typography */
+	.fluid-type {
+		font-size: calc(10px + 30 * ((100vw - 80px)/ 680));
+	}
+	.fluid-type--small {
+		font-size: calc(2px + 20 * ((100vw - 80px)/ 680));
+	}
+	p {margin-bottom: 1rem;}
+	p, ul li, ol li {
+	    font-size: 1.4rem;
+	}
+
+	/* Flex the things */
+	.name-section,
+	section,
+	.cv-item__top,
+	.header-top,
+	.header-top a {
+		display: flex;
+	}
+
+	/* Header */
+
+	.name-section img {
+		width: 40%;
+		align-self: center;
+		max-width: 19rem;
+	}
+	.name-section .name {
+		margin-left: 2rem;
+	    display: flex;
+	    flex-direction: column;
+	    justify-content: center;
+	    width: 60%;
+	}
+
+	.header-top {
+	    background-color: #fcab13;
+	    position: fixed;
+	    top: 0;
+	    left: 0;
+	    right: 0;
+	    color: #fff;
+	    z-index: 3;
+	    padding: .6rem 2rem;
+	}
+
+	.header-top a {
+	    text-decoration: none;
+	    color: #fff;
+	    display: inline-flex;
+	}
+
+	.header-top__left a,
+	.header-top__left span {
+		top: -5px;
+    	position: relative;
+	}
+
+	.header-top p {
+	    margin: 0;
+	    flex: 1;
+	    align-self: center;
+	}
+
+	.header-top__right {
+		width: 10%;
+	    align-self: center;
+	    background: #ff8d00;
+	}
+
+	.header-top__right .icon {
+		float: right;
+	}
+
+	/* SVG */
+	.icon {
+		width: 2rem;
+    	height: 2rem;
+    	margin-right: 1rem;
+	}
+
+	.header-top__right .last {
+		margin-right: 0;
+	}
+
+
+	/* Labels */
+	.label__outer {
+	    margin: 1rem;
+	    padding-top: 7px;
+	}
+	span.label {
+	    position: relative;
+	    background-color: #fcab13;
+	    width: 5rem;
+	    height: 5rem;
+	    display: block;
+	    border-radius: 50%;
+	}
+	span.label span {
+		font-size: 2.6rem;
+	    display: inherit;
+	    position: absolute;
+	    top: 50%;
+	    left: 50%;
+	    transform: translate(-50%, -50%);
+	}
+
+	/* Section*/
+
+	section .main {
+		margin: 0 1rem 2rem 1rem;
+		width: 80%;
+	}
+	.label__outer.label--body {
+		display: flex;
+	    flex-direction: column;
+	    width: 20%;
+	    border-top: 15px solid #fcab13;
+	}
+	.sticky {
+		position: sticky;
+	    top: 4rem;
+	    align-self: flex-start;
+	}
+
+	/* CV items */
+	
+	@media screen and (min-width: 601px){}
+	@media screen and (min-width: 768px){
+		.fluid-type {font-size: 3rem}
+		.fluid-type--small {font-size: 1.6rem}
+		p, ul li, ol li {
+		    font-size: 1.6rem;
+		    margin-bottom: 2rem;
+		}
+		.cv-item__top {
+			flex-direction: row;
+		}
+		.cv-item__top div {
+			width: 80%;
+    		padding-right: 3rem;
+		}
+		.cv-item__logo {
+			align-self: center;
+			width: 30%;
+		}
+	}
+	@media screen and (max-width: 767px){
+		.cv-item__top {
+			flex-direction: column-reverse;
+		}
+	}
+	@media screen and (min-width: 1300px){}
 
   </style>
 
@@ -15,45 +203,60 @@
 
 <body>
 
-<header class="">
-	<div class="">
-		<img src="" alt="" class="">
-		<div>
-			<h1>James Macleod</h1>
+<header>
+	<div class="header-top">
+        <p class="header-top__left">
+        	<svg class="icon">
+				<use xlink:href="#telephone-symbol-button" />
+			</svg>
+        	<a href="tel:07983 806617" itemprop="phone">
+	        	 07983 806617
+			</a>
+			<span>|</span>
+			<a href="tel:01908 376717" itemprop="phone">
+				01908 376717
+			</a>
+		</p>
+        <div class="header-top__right">
+        	<a href="">
+	        	<svg class="icon">
+					<use xlink:href="#linkedin-logo" />
+				</svg>
+			</a>
+			<a href="">
+	        	<svg class="icon last">
+					<use xlink:href="#new-email-button" />
+				</svg>
+			</a>
+        </div>
+    </div>
+	<div class="container name-section">
+		<img src="img/james-macleod.jpg" alt="" class="">
+		<div class="name">
+			<h1 class="fluid-type">James Macleod</h1>
 			<p>Account Manager</p>
-		</div>
-	</div>
-	<div class="">
-		<div>
-			<div class="label__outer">
-				<span class="label">C</span>
-				<h2 class="label__title">Contact</h2>
-			</div>
-			<div class="label__outer">
+			<div class="header-links">
 				<a href="" target="_blank">
-					<span class="label">Li</span>
+					<span></span>
+				</a>
+				<a href="" target="_blank">
+					<span></span>
+				</a>
+				<a href="" target="_blank">
+					<span></span>
 				</a>
 			</div>
-		</div>
-		<div>
-			<div class="label__outer">
-				<span class="label">W</span>
-				<h2 class="label__title">Work</h2>
-			</div>
-			<a href="" target="_blank">
-				<span class="label">D</span>
-			</a>
 		</div>
 	</div>
 </header>
 
-<main>
+<main class="container">
 <section>
-	<div class="label__outer">
-		<span class="label">P</span>
-		<h2 class="label__title">Professional Profile</h2>
+	<div class="label__outer label--body sticky">
+		<span class="label"><span>P</span></span>
+		<h2 class="label__title fluid-type--small">Professional Profile</h2>
 	</div>
-	<div>
+	<div class="main">
 		<p>Accomplished business development professional with a proven track record delivering rapid growth sales and
 		marketing strategies in-line with targets, KPIs and business needs. Identifies new sales opportunities and plays a
 		pivotal role in shaping the brand identity. Adopts a consultative, solution orientated and service focused approach to
@@ -67,12 +270,11 @@
 </section>
 
 <section>
-	<div class="label__outer">
-		<span class="label">K</span>
+	<div class="label__outer label--body sticky">
+		<span class="label"><span>K</span></span>
 		<h2 class="label__title">Key Skills</h2>
 	</div>
-	<div>
-		<ul>
+		<ul class="main">
 			<li>Develops robust pipelines, proven ability to convert new opportunities and retain business levels.</li>
 			<li>Promotes service excellence resulting in retained client base and recommendations.</li>
 			<li>Adopts a consultative and solution orientated structure to client engagement and negotiations.</li>
@@ -82,29 +284,35 @@
 			<li>Offers strategic leadership to teams; shares best practice and provides guidance to staff members. </li>
 			<li>Delivers engaging presentations to varied audiences – a natural networker and relationship builder.</li> 
 		</ul>
-	</div>
 </section>
 
 <section>
-	<div class="label__outer">
-		<span class="label">C</span>
+	<div class="label__outer label--body sticky">
+		<span class="label"><span>C</span></span>
 		<h2 class="label__title">Career history</h2>
 	</div>
-	<table style="width:100%">
-	  <tr>
-	    <th>HANDTMANN <br>Senior Sales Support / Marketing Coordinator</th>
-	    <th>March 2015 – to present</th> 
-	  </tr>
-	  <tr>
-	    <td>Responsible for the development and execution of annual marketing plans across print, digital and social media. 
-		Designs, writes and manages content for a number of applications and campaigns, including adverts, sales collateral, press releases, blog posts, internal video productions and international management presentations, to deliver a professional look in-line with brand identity and emphasising key selling points. 
-		Initiated the use of digital advertising channels that were new to the business. My copy achieved a 50% higher click through rate than the average for those positions while costing significantly less money than those used before.
-		Took ownership of the company LinkedIn account to drive a 40-fold increase in followers over a 12-month period through the strategic sharing of engaging, relevant information and growing followers from 3 to 300 in 18 months.
-		Oversees full project lifecycle of trade shows with budgets of up to £150,000; supervised the largest show in company history to deliver new stand design, resulting in the most successful ever show in the UK and Ireland in terms of sales and profit. 
-		Was chosen to act as super user to successfully implement the sales department’s new CRM system and train staff on effective use.
-		</td> 
-	  </tr>
-	</table>
+	<ol class="main">
+		<li>
+			<div class="cv-item__top">
+				<div>
+					<p class="cv-item__company">HANDTMANN</p>
+					<h3>Senior Sales Support / Marketing Coordinator</h3>
+					<p class="cv-item__date">March 2015 – to present</p>
+				</div>
+				<a href="" class="cv-item__logo">
+					<img src="img/handtmann.png">
+				</a>
+			</div>
+			<ul>
+				<li>Responsible for the development and execution of annual marketing plans across print, digital and social media. </li>
+				<li>Designs, writes and manages content for a number of applications and campaigns, including adverts, sales collateral, press releases, blog posts, internal video productions and international management presentations, to deliver a professional look in-line with brand identity and emphasising key selling points.</li> 
+				<li>Initiated the use of digital advertising channels that were new to the business. My copy achieved a 50% higher click through rate than the average for those positions while costing significantly less money than those used before.</li>
+				<li>Took ownership of the company LinkedIn account to drive a 40-fold increase in followers over a 12-month period through the strategic sharing of engaging, relevant information and growing followers from 3 to 300 in 18 months.</li>
+				<li>Oversees full project lifecycle of trade shows with budgets of up to £150,000; supervised the largest show in company history to deliver new stand design, resulting in the most successful ever show in the UK and Ireland in terms of sales and profit.</li>
+				<li>Was chosen to act as super user to successfully implement the sales department’s new CRM system and train staff on effective use.</li>
+			</ul>
+		</li>
+	</ol>
 </section>
 
 </main>
@@ -112,6 +320,11 @@
 <footer>
 
 </footer>
+
+
+
+<svg xmlns="http://www.w3.org/2000/svg" style="display: none;"><symbol id="linkedin-logo" viewBox="0 0 430.117 430.118"><title>linkedin-logo</title><path id="LinkedIn__x28_alt_x29_" d="M398.355,0H31.782C14.229,0,0.002,13.793,0.002,30.817v368.471 c0,17.025,14.232,30.83,31.78,30.83h366.573c17.549,0,31.76-13.814,31.76-30.83V30.817C430.115,13.798,415.904,0,398.355,0z M130.4,360.038H65.413V165.845H130.4V360.038z M97.913,139.315h-0.437c-21.793,0-35.92-14.904-35.92-33.563 c0-19.035,14.542-33.535,36.767-33.535c22.227,0,35.899,14.496,36.331,33.535C134.654,124.415,120.555,139.315,97.913,139.315z M364.659,360.038h-64.966V256.138c0-26.107-9.413-43.921-32.907-43.921c-17.973,0-28.642,12.018-33.327,23.621 c-1.736,4.144-2.166,9.94-2.166,15.728v108.468h-64.954c0,0,0.85-175.979,0-194.192h64.964v27.531 c8.624-13.229,24.035-32.1,58.534-32.1c42.76,0,74.822,27.739,74.822,87.414V360.038z M230.883,193.99 c0.111-0.182,0.266-0.401,0.42-0.614v0.614H230.883z"/></symbol><symbol id="google-drive-pdf-file" viewBox="0 0 459 459"><title>google-drive-pdf-file</title><path d="M211.65,142.8L211.65,142.8C214.2,142.8,214.2,142.8,211.65,142.8c2.55-10.2,5.1-15.3,5.1-22.95v-5.1 c2.55-12.75,2.55-22.95,0-25.5c0,0,0,0,0-2.55l-2.55-2.55l0,0l0,0c0,0,0,2.55-2.55,2.55C206.55,102,206.55,119.85,211.65,142.8 L211.65,142.8z M135.15,318.75c-5.1,2.55-10.2,5.1-12.75,7.65c-17.85,15.3-30.6,33.149-33.15,40.8l0,0l0,0l0,0 C104.55,364.65,119.85,349.35,135.15,318.75C137.7,318.75,137.7,318.75,135.15,318.75C137.7,318.75,135.15,318.75,135.15,318.75z M369.75,280.5c-2.55-2.55-12.75-10.2-48.45-10.2c-2.55,0-2.55,0-5.1,0l0,0c0,0,0,0,0,2.55c17.85,7.65,35.7,12.75,48.45,12.75 c2.55,0,2.55,0,5.1,0l0,0h2.55c0,0,0,0,0-2.55l0,0C372.3,283.05,369.75,283.05,369.75,280.5z M408,0H51C22.95,0,0,22.95,0,51v357 c0,28.05,22.95,51,51,51h357c28.05,0,51-22.95,51-51V51C459,22.95,436.05,0,408,0z M379.95,300.9c-5.101,2.55-12.75,5.1-22.95,5.1 c-20.4,0-51-5.1-76.5-17.85c-43.35,5.1-76.5,10.199-102,20.399c-2.55,0-2.55,0-5.1,2.55c-30.6,53.551-56.1,79.051-76.5,79.051 c-5.1,0-7.65,0-10.2-2.551l-12.75-7.649v-2.55c-2.55-5.101-2.55-7.65-2.55-12.75c2.55-12.75,17.85-35.7,48.45-53.551 c5.1-2.55,12.75-7.649,22.95-12.75c7.65-12.75,15.3-28.05,25.5-45.899c12.75-25.5,20.4-51,28.05-73.95l0,0 c-10.2-30.6-15.3-48.45-5.1-84.15c2.55-10.2,10.2-20.4,20.4-20.4h5.1c5.1,0,10.2,2.55,15.3,5.1c17.851,17.85,10.2,58.65,0,91.8 c0,2.55,0,2.55,0,2.55c10.2,28.05,25.5,51,40.8,66.3c7.65,5.1,12.75,10.2,22.95,15.3c12.75,0,22.95-2.55,33.15-2.55 c30.6,0,51,5.1,58.649,17.85c2.551,5.101,2.551,10.2,2.551,15.3C387.6,288.15,385.05,295.8,379.95,300.9z M214.2,201.45 c-5.1,17.85-15.3,38.25-25.5,61.2c-5.1,10.199-10.2,17.85-15.3,28.05h2.55h2.55l0,0c33.15-12.75,63.75-20.4,84.15-22.95 c-5.101-2.55-7.65-5.1-10.2-7.65C239.7,244.8,224.4,224.4,214.2,201.45z"/></symbol><symbol id="new-email-button" viewBox="0 0 95.098 95.098"><title>new-email-button</title><path d="M75.593,32.792c-0.299-0.181-0.671-0.193-0.981-0.031L48.174,46.599c-0.371,0.193-0.87,0.193-1.237,0.001L20.485,32.76 c-0.31-0.162-0.683-0.15-0.981,0.031c-0.299,0.181-0.482,0.505-0.482,0.855v5.032c0,0.365,0.199,0.702,0.52,0.877l27.532,15.071 c0.15,0.081,0.315,0.123,0.48,0.123s0.331-0.042,0.479-0.124l27.521-15.07c0.32-0.175,0.52-0.512,0.52-0.877v-5.031 C76.076,33.297,75.893,32.973,75.593,32.792z"/><path d="M92.961,0H2.137C0.957,0,0,0.957,0,2.137v90.824c0,1.18,0.957,2.137,2.137,2.137h90.824c1.18,0,2.137-0.957,2.137-2.137 V2.137C95.098,0.957,94.141,0,92.961,0z M79.632,66.879c0,0.736-0.597,1.333-1.333,1.333h-61.5c-0.736,0-1.333-0.597-1.333-1.333 v-38.66c0-0.736,0.597-1.333,1.333-1.333h61.5c0.736,0,1.333,0.597,1.333,1.333V66.879z"/></symbol><symbol id="telephone-symbol-button" viewBox="0 0 438.536 438.536"><title>telephone-symbol-button</title><path d="M414.41,24.123C398.333,8.042,378.963,0,356.315,0H82.228C59.58,0,40.21,8.042,24.126,24.123 C8.045,40.207,0.003,59.576,0.003,82.225v274.084c0,22.647,8.042,42.018,24.123,58.102c16.084,16.084,35.454,24.126,58.102,24.126 h274.084c22.648,0,42.018-8.042,58.095-24.126c16.084-16.084,24.126-35.454,24.126-58.102V82.225 C438.532,59.576,430.49,40.204,414.41,24.123z M359.159,332.874c-3.997,8.754-12.99,16.371-26.977,22.846 c-13.99,6.475-26.413,9.712-37.265,9.712c-3.046,0-6.283-0.235-9.708-0.711c-3.426-0.479-6.324-0.952-8.703-1.428 c-2.378-0.476-5.523-1.331-9.421-2.57c-3.905-1.234-6.715-2.189-8.422-2.854c-1.718-0.664-4.856-1.854-9.421-3.566 c-4.569-1.718-7.427-2.765-8.562-3.138c-31.215-11.427-61.721-32.028-91.507-61.814c-29.786-29.793-50.391-60.292-61.812-91.502 c-0.378-1.143-1.425-3.999-3.14-8.565c-1.712-4.565-2.905-7.708-3.571-9.419c-0.662-1.713-1.615-4.521-2.853-8.42 c-1.237-3.903-2.091-7.041-2.568-9.423c-0.478-2.376-0.95-5.277-1.427-8.704c-0.476-3.427-0.713-6.667-0.713-9.71 c0-10.85,3.237-23.269,9.71-37.259c6.472-13.988,14.084-22.981,22.841-26.979c10.088-4.189,19.7-6.283,28.837-6.283 c2.091,0,3.616,0.192,4.565,0.572c0.953,0.385,2.524,2.094,4.714,5.14c2.19,3.046,4.568,6.899,7.137,11.563 c2.57,4.665,5.092,9.186,7.566,13.562c2.474,4.377,4.854,8.705,7.139,12.991c2.284,4.279,3.711,6.995,4.281,8.133 c0.571,0.957,1.809,2.762,3.711,5.429c1.902,2.663,3.333,5.039,4.283,7.135c0.95,2.094,1.427,4.093,1.427,5.996 c0,2.859-1.953,6.331-5.854,10.42c-3.903,4.093-8.186,7.854-12.85,11.281s-8.945,7.092-12.847,10.994 c-3.899,3.899-5.852,7.087-5.852,9.562c0,1.333,0.333,2.902,1,4.71c0.666,1.812,1.285,3.287,1.856,4.427 c0.571,1.141,1.477,2.76,2.712,4.856c1.237,2.096,2.048,3.427,2.426,3.999c10.467,18.843,22.508,35.07,36.114,48.681 c13.612,13.613,29.836,25.648,48.682,36.117c0.567,0.384,1.902,1.191,4.004,2.43c2.091,1.232,3.713,2.136,4.853,2.707 c1.143,0.571,2.614,1.191,4.425,1.852c1.811,0.664,3.381,0.999,4.719,0.999c3.036,0,7.225-3.138,12.56-9.418 c5.328-6.286,10.756-12.518,16.276-18.705c5.516-6.181,9.985-9.274,13.418-9.274c1.902,0,3.897,0.473,5.999,1.424 c2.095,0.951,4.469,2.382,7.132,4.284c2.669,1.91,4.476,3.142,5.428,3.721l15.125,8.271c10.089,5.332,18.511,10.041,25.27,14.134 s10.424,6.899,10.996,8.419c0.379,0.951,0.564,2.478,0.564,4.572C365.449,313.199,363.354,322.812,359.159,332.874z"/></symbol></svg>
+
   <script src="js/scripts.js"></script>
 </body>
 </html>
