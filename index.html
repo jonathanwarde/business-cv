@@ -3,6 +3,11 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
+  <!-- Force IE to use the latest rendering engine available -->
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+  <!-- Mobile Meta -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <title>Business CV</title>
   <meta name="description" content="James Macleod CV">
@@ -19,11 +24,14 @@
 	:after {
 		box-sizing: border-box;
 	}
+	html {
+		font-size: 90% /* or 62.5% or whatever you like, it doesn't matter, it's just a browser fix, however "rem" units will be based on that value, so make it confortable for calculations; */;
+	}
 	body {
 		font-family: 'Montserrat', sans-serif;
-		min-height: 100vh;
 	    background-color: #f8f7f4;
 	    margin-top: 6rem;
+	    font-size: 0.75em; /* That is your text's default font size. Here i chose 12px */
 	}
 	h1, h2, h3, h4, .cv-item__company {
 		font-family: 'Archivo Black', sans-serif;
@@ -41,6 +49,17 @@
 		max-width: 1280px;
     	margin: 0 auto;
 	}
+
+	/* Utilities */
+
+	.desktop-only {display:block;}
+	.mobile-only {display: none;}
+
+	 @media screen and (max-width: 601px){
+	 	.desktop-only {display:none;}
+		.mobile-only {display: block;}
+	 }
+
 	/* typography */
 	.fluid-type {
 		font-size: calc(10px + 30 * ((100vw - 80px)/ 680));
@@ -65,16 +84,22 @@
 	/* Header */
 
 	.name-section img {
-		width: 40%;
+		width: 20%;
 		align-self: center;
 		max-width: 19rem;
+		padding: 0 0 0 1rem;
 	}
 	.name-section .name {
 		margin-left: 2rem;
 	    display: flex;
 	    flex-direction: column;
 	    justify-content: center;
-	    width: 60%;
+	    width: 80%;
+	}
+
+	.name__sub {
+		font-size: 1.4em;
+		font-weight: 600;
 	}
 
 	.header-top {
@@ -105,11 +130,14 @@
 	    flex: 1;
 	    align-self: center;
 	}
+	.name__sub.mobile-only {
+	    padding: 1rem;
+	}
 
 	.header-top__right {
 		width: 10%;
 	    align-self: center;
-	    background: #ff8d00;
+	    min-width: 9rem;
 	}
 
 	.header-top__right .icon {
@@ -136,13 +164,13 @@
 	span.label {
 	    position: relative;
 	    background-color: #fcab13;
-	    width: 5rem;
-	    height: 5rem;
+	    width: 3rem;
+	    height: 3rem;
 	    display: block;
 	    border-radius: 50%;
 	}
 	span.label span {
-		font-size: 2.6rem;
+		font-size: 2rem;
 	    display: inherit;
 	    position: absolute;
 	    top: 50%;
@@ -153,7 +181,7 @@
 	/* Section*/
 
 	section .main {
-		margin: 0 1rem 2rem 1rem;
+		margin: 1rem 1rem 2rem 1rem;
 		width: 80%;
 	}
 	.label__outer.label--body {
@@ -168,10 +196,38 @@
 	    align-self: flex-start;
 	}
 
+	/* Footer */
+
+	footer {
+	    background-color: #fcab13;
+	    color: #333;
+	}
+	.footer__inner {
+	    display: flex;
+	}
+	.footer__first {
+		padding: 1rem;
+	    flex: 0;
+	    min-width: 40%;
+	    background: #eaad3c;
+	    color: #fff;
+	}
+	.footer__second {
+		padding: 1rem;
+	}
+	.footer__inner h5 {
+		font-size: 3em;
+	}
+	footer a {
+	    color: #333;
+	    text-decoration: none;
+	    font-size: 1.4rem;
+	}
 	/* CV items */
 	
-	@media screen and (min-width: 601px){}
-	@media screen and (min-width: 768px){
+	@media only screen and (min-width: 601px){
+	}
+	@media only screen and (min-width: 768px){
 		.fluid-type {font-size: 3rem}
 		.fluid-type--small {font-size: 1.6rem}
 		p, ul li, ol li {
@@ -189,11 +245,25 @@
 			align-self: center;
 			width: 30%;
 		}
+		span.label {
+		    width: 4rem;
+		    height: 4rem;
+		}
+		span.label span {
+			font-size: 2.4rem;
+		}
+		.footer__second,
+		.footer__first {
+			padding: 2rem;
+		}
 	}
 	@media screen and (max-width: 767px){
 		.cv-item__top {
 			flex-direction: column-reverse;
 		}
+		html {font-size: 100%}
+		
+
 	}
 	@media screen and (min-width: 1300px){}
 
@@ -218,14 +288,19 @@
 			</a>
 		</p>
         <div class="header-top__right">
-        	<a href="">
+        	<a href="https://www.linkedin.com/in/jamesmacleodmarketing/" target="_blank">
 	        	<svg class="icon">
 					<use xlink:href="#linkedin-logo" />
 				</svg>
 			</a>
-			<a href="">
-	        	<svg class="icon last">
+			<a href="mailto:jimmacleod@hotmail.com">
+	        	<svg class="icon">
 					<use xlink:href="#new-email-button" />
+				</svg>
+			</a>
+			<a href="james-macleod-cv.pdf">
+	        	<svg class="icon last">
+					<use xlink:href="#google-drive-pdf-file" />
 				</svg>
 			</a>
         </div>
@@ -234,20 +309,11 @@
 		<img src="img/james-macleod.jpg" alt="" class="">
 		<div class="name">
 			<h1 class="fluid-type">James Macleod</h1>
-			<p>Account Manager</p>
-			<div class="header-links">
-				<a href="" target="_blank">
-					<span></span>
-				</a>
-				<a href="" target="_blank">
-					<span></span>
-				</a>
-				<a href="" target="_blank">
-					<span></span>
-				</a>
-			</div>
+			<p class="name__role">Account Manager</p>
+			<p class="name__sub desktop-only">Executes sales and marketing strategies, exceeds KPIs &amp; enhances client relations | Driven by results | Successfully negotiates with new and existing suppliers | Supports and trains colleagues on new processes</p>
 		</div>
 	</div>
+	<p class="name__sub mobile-only">Executes sales and marketing strategies, exceeds KPIs &amp; enhances client relations | Driven by results | Successfully negotiates with new and existing suppliers | Supports and trains colleagues on new processes</p>
 </header>
 
 <main class="container">
@@ -272,7 +338,7 @@
 <section>
 	<div class="label__outer label--body sticky">
 		<span class="label"><span>K</span></span>
-		<h2 class="label__title">Key Skills</h2>
+		<h2 class="label__title fluid-type--small">Key Skills</h2>
 	</div>
 		<ul class="main">
 			<li>Develops robust pipelines, proven ability to convert new opportunities and retain business levels.</li>
@@ -289,7 +355,7 @@
 <section>
 	<div class="label__outer label--body sticky">
 		<span class="label"><span>C</span></span>
-		<h2 class="label__title">Career history</h2>
+		<h2 class="label__title fluid-type--small">Career history</h2>
 	</div>
 	<ol class="main">
 		<li>
@@ -312,12 +378,76 @@
 				<li>Was chosen to act as super user to successfully implement the sales department’s new CRM system and train staff on effective use.</li>
 			</ul>
 		</li>
+		<li>
+			<div class="cv-item__top">
+				<div>
+					<p class="cv-item__company">TRANS-EUROPEAN INTERMODAL TRANSPORT</p>
+					<h3>Business Development Manager</h3>
+					<p class="cv-item__date">May 2007 – February 2015</p>
+				</div>
+				<a href="" class="cv-item__logo">
+					<img src="img/intermodal.jpg">
+				</a>
+			</div>
+			<ul>
+				<li>Took responsibility for the continued growth of revenue and client base through a combination of successful marketing campaigns and adopting a consultative, partnership-based approached to sales and negotiations.</li>
+				<li>Successfully gained contracts from major international clients including multi-national FMCG clients such as Tate & Lyle, Scottish & Newcastle, Panasonic, Tomy, Kent Foods, Global Brands, Jelu Werk, Sachsenmilch and Brooks McRobbie, through a targeted email and telephone marketing campaign. </li>
+				<li>Delivered a significant reduction in clients’ logistics cost through negotiations with international suppliers; agreed price reductions and service level improvements to ensure best value for money for key clients. </li>
+				<li>Created a new business focused on ferry ticket sales which included high value, prestigious clients such as Bishops Move in my first month at the company.</li>
+				<li>Provided maximum levels of customer service and supplier performance; monitored and evaluated existing service levels against pre-agreed KPIs and offered opportunities for improvement. </li>
+				<li>Acted in a mediator capacity during customer and supplier disputes where appropriate to ensure SLA achievement. </li>
+				<li>Partnered with web developers to relaunch company website to deliver increased brand awareness and revenue. </li>
+				<li>Sourced new suppliers to build a pipeline of contacts; built strong relationships and negotiated prices according to the individual customer needs to provide innovate solutions wherever possible. </li>
+
+			</ul>
+		</li>
 	</ol>
 </section>
+
+<section>
+	<div class="label__outer label--body sticky">
+		<span class="label"><span>O</span></span>
+		<h2 class="label__title fluid-type--small">Other info</h2>
+	</div>
+	<div class="main">
+		<p><strong>Marketing Consultant</strong>: Peninsula Business Services. (April 2006 – February 2007)
+		<strong>Project Manager / Sales Consultant</strong>: Vision Marketing. (November 2004 – April 2006)</p>
+		<h4>Education history</h4>
+		<p>BA (Hons) in English Literature – 2:1: University of Birmingham. (1999 – 2002)<p>
+		<p>3 x A Levels including Business Studies (A), Media Studies (A) and English (B): Palmers College. (1994 – 1997)
+		<p>9 x GCSEs including Mathematics (A) and English (A): The Grays School. (1989 – 1994)</p>
+		<h4>IT Skills</h4> 
+		<p>MS Office Suite (Word, Excel, PowerPoint, Outlook) | Word Press | NAV | Learns new systems quickly 
+		Google Online Marketing Fundamentals Qualification.</p> 
+		<h4>References</h4>
+		<p>Available upon request</p>
+	</div>
+</section>
+
 
 </main>
 
 <footer>
+	<div class="footer__inner">
+		<div class="footer__first">
+		<h5>Let's talk</h5>
+		<p>If you'd like to hire me or would be interested in havaing a chat, please get in touch.</p> 
+	</div>
+	<div class="footer__second">
+		<p>10 Red House Close,<br> Newton Longville,<br> Milton Keynes, Buckinghamshire.<br> MK17 0AH</p>
+    	<a href="tel:07983 806617" itemprop="phone">
+			t: 07983 806617
+		</a>
+		<span>|</span>
+		<a href="tel:01908 376717" itemprop="phone">
+			01908 376717
+		</a>
+		<span>|</span>
+		<a href="mailto:jimmacleod@hotmail.com">
+			e: jimmacleod@hotmail.com
+		</a>
+	</div>
+	</div>
 
 </footer>
 
